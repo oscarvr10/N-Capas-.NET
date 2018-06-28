@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{16C88F8E-A5F2-4352-A458-2F780F17CBEE}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAL</RootNamespace>
-    <AssemblyName>DAL</AssemblyName>
+    <ProjectGuid>{2D1A8114-504B-4940-8A95-8FCDF32EB029}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Test</RootNamespace>
+    <AssemblyName>Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,8 +41,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,64 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Entities\Category.cs">
-      <DependentUpon>NWindDBModel.tt</DependentUpon>
-    </None>
-    <None Include="..\Entities\Product.cs">
-      <DependentUpon>NWindDBModel.tt</DependentUpon>
-    </None>
-    <Compile Include="NWindDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NWindDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NWindDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NWindDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NWindDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NWindDBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="RepositoryFactory.cs" />
-    <Compile Include="EFRepository.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config">
-      <SubType>Designer</SubType>
-    </None>
-    <EntityDeploy Include="NWindDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NWindDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="NWindDBModel.edmx.diagram">
-      <DependentUpon>NWindDBModel.edmx</DependentUpon>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="NWindDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NWindDBModel.edmx</DependentUpon>
-      <LastGenOutput>NWindDBModel.Context.cs</LastGenOutput>
-      <CustomToolNamespace>Entities</CustomToolNamespace>
-    </Content>
-    <Content Include="NWindDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NWindDBModel.edmx</DependentUpon>
-      <LastGenOutput>NWindDBModel.cs</LastGenOutput>
-      <CustomToolNamespace>Entities</CustomToolNamespace>
-    </Content>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{16c88f8e-a5f2-4352-a458-2f780f17cbee}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{22407b0b-f4af-464e-9561-e643edc74b3b}</Project>
       <Name>Entities</Name>
