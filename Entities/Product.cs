@@ -15,7 +15,7 @@ namespace Entities
     public partial class Product
     {
         public int ProductID { get; set; }
-        public byte[] ProductName { get; set; }
+        public string ProductName { get; set; }
         public int CategoryID { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal UnitsInStock { get; set; }
