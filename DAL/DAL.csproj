@@ -49,12 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RepositoryFactory.cs" />
     <None Include="..\Entities\Category.cs">
       <DependentUpon>NWindDBModel.tt</DependentUpon>
     </None>
     <None Include="..\Entities\Product.cs">
       <DependentUpon>NWindDBModel.tt</DependentUpon>
     </None>
+    <Compile Include="EFRepository.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="NWindDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,9 +105,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="..\Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{bf2ec9bc-eeae-4332-ba5b-ddc346c6bcbc}</Project>
