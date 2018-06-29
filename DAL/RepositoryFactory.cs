@@ -4,7 +4,9 @@
     {
         public static IRepository CreateRepository()
         {
-            return new EFRepository(new Entities.NWindEntities());
+            var context = new Entities.NWindEntities();
+            context.Configuration.ProxyCreationEnabled = false;
+            return new EFRepository(context);
         }
     }
 }
