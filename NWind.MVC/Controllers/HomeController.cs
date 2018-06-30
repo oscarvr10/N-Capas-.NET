@@ -1,13 +1,11 @@
-﻿using Entities;
-using NWindProxyService;
+﻿using BLL;
+using Entities;
 using System.Web.Mvc;
 
 namespace NWind.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        Proxy proxy = new Proxy();
-
         // GET: Home
         public ActionResult Index()
         {
@@ -17,7 +15,8 @@ namespace NWind.MVC.Controllers
         [HttpPost]
         public ActionResult Index(int id)
         {
-            var products = proxy.GetProductsByCategoryID(id);
+            var proxy = new Products();
+            var products = proxy.FilterByCategoryID(id);
             ViewBag.CategoryId = id;
             return View("ProductList", products);
         }
@@ -25,16 +24,18 @@ namespace NWind.MVC.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var product = proxy.GetProductByID(id);
+            var proxy = new Products();
+            var product = proxy.GetByID(id);
             return View(product);
         }
 
         [HttpGet]
         public ActionResult CUD(int id = 0)
         {
+            var proxy = new Products();
             var product = new Product();
             if (id != 0)
-                product = proxy.GetProductByID(id);
+                product = proxy.GetByID(id);
 
             return View(product);
         }
@@ -43,16 +44,16 @@ namespace NWind.MVC.Controllers
         public ActionResult CUD(Product product, string btnCreate, string btnUpdate, string btnDelete)
         {   
             ActionResult result = View();
-
-            if(!string.IsNullOrEmpty(btnCreate))
+            var proxy = new Products();
+            if (!string.IsNullOrEmpty(btnCreate))
             {
-                var tmpProduct = proxy.CreateProduct(product);
+                var tmpProduct = proxy.Create(product);
                 if (tmpProduct != null)
                     result = RedirectToAction("CUD", new { id = tmpProduct.ProductID });
             }
             else if (!string.IsNullOrEmpty(btnUpdate))
             {
-                var isUpdated = proxy.UpdateProduct(product);
+                var isUpdated = proxy.Update(product);
                 if (isUpdated)
                     result = Content("The product was updated successfully.");
                 else
@@ -60,7 +61,7 @@ namespace NWind.MVC.Controllers
             }
             else if (!string.IsNullOrEmpty(btnDelete))
             {
-                var isDeleted = proxy.DeleteProduct(product.ProductID);
+                var isDeleted = proxy.Delete(product.ProductID);
                 if (isDeleted)
                     result = Content("The product was removed successfully.");
                 else
