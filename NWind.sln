@@ -9,11 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{22407B0B-F4AF-464E-9561-E643EDC74B3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{5C76754F-4DD2-411B-8D08-07674DEDA5C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{5C76754F-4DD2-411B-8D08-07674DEDA5C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCL", "SCL\SCL.csproj", "{27339F5A-DDA1-4194-A9F6-5874DF2E1499}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCL", "SCL\SCL.csproj", "{27339F5A-DDA1-4194-A9F6-5874DF2E1499}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{6E8FAD58-471C-43FC-B2CA-1A5BBC14C9AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWindProxyService", "NWindProxyService\NWindProxyService.csproj", "{AA1CD122-8C29-4791-AB90-0FD106ED9AE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{6E8FAD58-471C-43FC-B2CA-1A5BBC14C9AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E8FAD58-471C-43FC-B2CA-1A5BBC14C9AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E8FAD58-471C-43FC-B2CA-1A5BBC14C9AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA1CD122-8C29-4791-AB90-0FD106ED9AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA1CD122-8C29-4791-AB90-0FD106ED9AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA1CD122-8C29-4791-AB90-0FD106ED9AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA1CD122-8C29-4791-AB90-0FD106ED9AE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
