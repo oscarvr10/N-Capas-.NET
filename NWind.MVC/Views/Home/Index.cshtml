@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page-header">
+    <h2>Search Products by Category</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-inline">
+        <label>Category ID:</label>
+        <input class="form-control" type="text" name="id" />
+        <input type="submit" class="btn btn-default" value="Search" />
+    </div>
+}
+<div>
+    @Html.ActionLink("New Product", "CUD","Home",new { @class = "btn btn-primary" })
+</div>

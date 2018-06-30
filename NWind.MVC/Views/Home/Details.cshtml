@@ -1,0 +1,31 @@
+﻿@model Entities.Product
+@{
+    ViewBag.Title = "Product Detail";
+}
+
+<div class="page-header">
+    <h2>Product Detail</h2>
+</div>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <h4>ID:</h4>
+        <div>@Model.ProductID</div>
+    </div>
+    <div class="form-group">
+        <h4>Name:</h4>
+        <div>@Model.ProductName</div>
+    </div>
+    <div class="form-group">
+        <h4>Unit Price:</h4>
+        <div>@Model.UnitPrice.ToString("C2")</div>
+    </div>
+    <div class="form-group">
+        <h4>Units in Stock:</h4>
+        <div>@Math.Round(Model.UnitsInStock, 0)</div>
+    </div>
+    <div class="form-group">
+        <h4>Category:</h4>
+        <div>@Model.CategoryID</div>
+    </div>
+</div>

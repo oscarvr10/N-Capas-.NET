@@ -1,0 +1,35 @@
+﻿@model List<Entities.Product>
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<div class="page-header">
+    <h2>Results for category ID @ViewBag.CategoryId</h2>
+</div>
+
+@if (Model?.Count > 0)
+{
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Unit Price</th>
+            <th>Units in Stock</th>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(product.ProductID.ToString(),"Details",
+                   new { id = product.ProductID})</td>
+                <td>@product.ProductName</td>
+                <td>@product.UnitPrice.ToString("C2")</td>
+                <td>@Math.Round(product.UnitsInStock, 0)</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p class="lead">Not found results for the specified category ID.</p>
+}
+

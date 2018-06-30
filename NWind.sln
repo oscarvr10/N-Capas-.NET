@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWindProxyService", "NWindProxyService\NWindProxyService.csproj", "{AA1CD122-8C29-4791-AB90-0FD106ED9AE5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayer", "PresentationLayer", "{87ADA447-E065-4AB7-BED9-2FFC7DC92730}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWind.MVC", "NWind.MVC\NWind.MVC.csproj", "{CB0A103A-055A-4D13-AAD8-EC3B9F0C0E37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,9 +55,17 @@ Global
 		{AA1CD122-8C29-4791-AB90-0FD106ED9AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA1CD122-8C29-4791-AB90-0FD106ED9AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA1CD122-8C29-4791-AB90-0FD106ED9AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB0A103A-055A-4D13-AAD8-EC3B9F0C0E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB0A103A-055A-4D13-AAD8-EC3B9F0C0E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB0A103A-055A-4D13-AAD8-EC3B9F0C0E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB0A103A-055A-4D13-AAD8-EC3B9F0C0E37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA1CD122-8C29-4791-AB90-0FD106ED9AE5} = {87ADA447-E065-4AB7-BED9-2FFC7DC92730}
+		{CB0A103A-055A-4D13-AAD8-EC3B9F0C0E37} = {87ADA447-E065-4AB7-BED9-2FFC7DC92730}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {615ECB6C-4D38-4DE6-9F27-45FA9B1E3ADA}
