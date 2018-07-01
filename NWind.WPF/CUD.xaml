@@ -2,43 +2,61 @@
     x:Class="NWind.WPF.CUD"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:NWind.WPF.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:NWind.ViewModel;assembly=NWind.ViewModel"
     Title="CUD"
     Width="800"
     Height="450"
     mc:Ignorable="d">
+    <Window.DataContext>
+        <vm:CUDViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <converters:TextColorConverter x:Key="TextColorConverter" />
+        </ResourceDictionary>
+    </Window.Resources>
     <StackPanel Margin="10">
-        <Label
-            HorizontalAlignment="Center"
-            Content="New Product"
-            FontSize="18"
-            FontWeight="SemiBold" />
+        <Grid>
+            <Button
+                x:Name="btnMainWindow"
+                Width="50"
+                Height="25"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Click="btnMainWindow_Click"
+                Content="Back" />
+            <Label
+                HorizontalAlignment="Center"
+                Content="New Product"
+                FontSize="18"
+                FontWeight="SemiBold" />
+        </Grid>
+
         <StackPanel Margin="0,5" Orientation="Horizontal">
             <Label Width="100" Content="ID" />
             <TextBox
                 Width="100"
                 IsReadOnly="True"
-                Text="{Binding ProductID, Mode=TwoWay}" />
+                Text="{Binding Product.ProductID, Mode=TwoWay}" />
         </StackPanel>
         <StackPanel Margin="0,5" Orientation="Horizontal">
             <Label Width="100" Content="Name" />
-            <TextBox
-                Width="100"
-                IsReadOnly="True"
-                Text="{Binding ProductName, Mode=TwoWay}" />
+            <TextBox Width="100" Text="{Binding Product.ProductName, Mode=TwoWay}" />
         </StackPanel>
         <StackPanel Margin="0,5" Orientation="Horizontal">
             <Label Width="100" Content="Category ID" />
-            <TextBox Width="100" Text="{Binding CategoryID, Mode=TwoWay}" />
+            <TextBox Width="100" Text="{Binding Product.CategoryID, Mode=TwoWay}" />
         </StackPanel>
         <StackPanel Margin="0,5" Orientation="Horizontal">
             <Label Width="100" Content="Units in Stock" />
-            <TextBox Width="100" Text="{Binding UnitsInStock, Mode=TwoWay}" />
+            <TextBox Width="100" Text="{Binding Product.UnitsInStock, Mode=TwoWay}" />
         </StackPanel>
         <StackPanel Margin="0,5" Orientation="Horizontal">
             <Label Width="100" Content="Price" />
-            <TextBox Width="100" Text="{Binding UnitPrice, Mode=TwoWay}" />
+            <TextBox Width="100" Text="{Binding Product.UnitPrice, Mode=TwoWay}" />
         </StackPanel>
         <StackPanel
             Height="30"
@@ -60,6 +78,9 @@
                 Command="{Binding DeleteProductCommand}"
                 Content="Delete Product" />
         </StackPanel>
-
+        <Label
+            Content="{Binding Message, Mode=OneWay}"
+            FontSize="18"
+            Foreground="{Binding HasError, Converter={StaticResource TextColorConverter}}" />
     </StackPanel>
 </Window>

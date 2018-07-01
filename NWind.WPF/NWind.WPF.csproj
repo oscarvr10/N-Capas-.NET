@@ -69,6 +69,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\TextColorConverter.cs" />
     <Compile Include="CUD.xaml.cs">
       <DependentUpon>CUD.xaml</DependentUpon>
     </Compile>
@@ -103,6 +104,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NWind.ViewModel\NWind.ViewModel.csproj">
+      <Project>{08e90ac9-853d-4c8c-83be-a932ed7c99a4}</Project>
+      <Name>NWind.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
