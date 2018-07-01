@@ -1,0 +1,65 @@
+﻿<Window
+    x:Class="NWind.WPF.CUD"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="CUD"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <StackPanel Margin="10">
+        <Label
+            HorizontalAlignment="Center"
+            Content="New Product"
+            FontSize="18"
+            FontWeight="SemiBold" />
+        <StackPanel Margin="0,5" Orientation="Horizontal">
+            <Label Width="100" Content="ID" />
+            <TextBox
+                Width="100"
+                IsReadOnly="True"
+                Text="{Binding ProductID, Mode=TwoWay}" />
+        </StackPanel>
+        <StackPanel Margin="0,5" Orientation="Horizontal">
+            <Label Width="100" Content="Name" />
+            <TextBox
+                Width="100"
+                IsReadOnly="True"
+                Text="{Binding ProductName, Mode=TwoWay}" />
+        </StackPanel>
+        <StackPanel Margin="0,5" Orientation="Horizontal">
+            <Label Width="100" Content="Category ID" />
+            <TextBox Width="100" Text="{Binding CategoryID, Mode=TwoWay}" />
+        </StackPanel>
+        <StackPanel Margin="0,5" Orientation="Horizontal">
+            <Label Width="100" Content="Units in Stock" />
+            <TextBox Width="100" Text="{Binding UnitsInStock, Mode=TwoWay}" />
+        </StackPanel>
+        <StackPanel Margin="0,5" Orientation="Horizontal">
+            <Label Width="100" Content="Price" />
+            <TextBox Width="100" Text="{Binding UnitPrice, Mode=TwoWay}" />
+        </StackPanel>
+        <StackPanel
+            Height="30"
+            Margin="0,20"
+            Orientation="Horizontal">
+            <Button
+                Width="100"
+                Margin="10,0"
+                Command="{Binding CreateProductCommand}"
+                Content="Create Product" />
+            <Button
+                Width="100"
+                Margin="10,0"
+                Command="{Binding UpdateProductCommand}"
+                Content="Update Product" />
+            <Button
+                Width="100"
+                Margin="10,0"
+                Command="{Binding DeleteProductCommand}"
+                Content="Delete Product" />
+        </StackPanel>
+
+    </StackPanel>
+</Window>
