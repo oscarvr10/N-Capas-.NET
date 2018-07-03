@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NWind.Xamarin.CUD"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:NWind.Xamarin.Converters"
+    xmlns:vm="clr-namespace:NWind.ViewModel;assembly=NWind.ViewModel"
+    Title="New Product">
+    <ContentPage.BindingContext>
+        <vm:CUDViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:TextColorConverter x:Key="TextColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <StackLayout Margin="10">
+            <StackLayout Margin="10" Orientation="Horizontal">
+                <Label
+                    Text="ID"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <Entry
+                    IsEnabled="False"
+                    Text="{Binding Product.ProductID, Mode=TwoWay}"
+                    WidthRequest="100" />
+            </StackLayout>
+            <StackLayout Margin="10" Orientation="Horizontal">
+                <Label
+                    Text="Name"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <Entry Text="{Binding Product.ProductName, Mode=TwoWay}" WidthRequest="100" />
+            </StackLayout>
+            <StackLayout Margin="10" Orientation="Horizontal">
+                <Label
+                    Text="Category ID"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <Entry Text="{Binding Product.CategoryID, Mode=TwoWay}" WidthRequest="100" />
+            </StackLayout>
+            <StackLayout Margin="10" Orientation="Horizontal">
+                <Label
+                    Text="Units in Stock"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <Entry Text="{Binding Product.UnitsInStock, Mode=TwoWay}" WidthRequest="100" />
+            </StackLayout>
+            <StackLayout Margin="10" Orientation="Horizontal">
+                <Label
+                    Text="Price"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <Entry Text="{Binding Product.UnitPrice, Mode=TwoWay}" WidthRequest="100" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Button
+                    Command="{Binding CreateProductCommand}"
+                    Text="Create Product"
+                    WidthRequest="100" />
+                <Button
+                    Command="{Binding UpdateProductCommand}"
+                    Text="Update Product"
+                    WidthRequest="100" />
+                <Button
+                    Command="{Binding DeleteProductCommand}"
+                    Text="Delete Product"
+                    WidthRequest="100" />
+            </StackLayout>
+            <Label
+                FontSize="18"
+                Text="{Binding Message, Mode=OneWay}"
+                TextColor="{Binding HasError, Converter={StaticResource TextColorConverter}}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

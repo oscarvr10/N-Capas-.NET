@@ -24,7 +24,7 @@
                     Width="50"
                     Height="20"
                     Margin="10"
-                    Text="{Binding ProductDetail.CategoryID}" />
+                    Text="{Binding CategoryID}" />
                 <Button
                     Width="80"
                     Margin="10"

@@ -50,6 +50,17 @@ namespace NWind.ViewModel
             }
         }
 
+        private int _categoryID;
+        public int CategoryID
+        {
+            get { return _categoryID; }
+            set
+            {
+                _categoryID = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Commands
@@ -69,7 +80,7 @@ namespace NWind.ViewModel
                     (obj) => 
                     {
                         var proxy = new NWindProxyService.Proxy();
-                        Products = proxy.GetProductsByCategoryID(ProductDetail.CategoryID);
+                        Products = proxy.GetProductsByCategoryID(CategoryID);
                     }
                 );
             SearchProductByIDCommand = new CommandDelegate
@@ -77,11 +88,12 @@ namespace NWind.ViewModel
                     (obj) => { return true; },
                     (obj) =>
                     {
-                        if (SelectedProduct.ProductID == 0) return;
+                        if (SelectedProduct?.ProductID == 0) return;
 
                         var proxy = new NWindProxyService.Proxy();
                         var product = proxy.GetProductByID(SelectedProduct.ProductID);
                         ProductDetail.ProductName = product.ProductName;
+                        ProductDetail.CategoryID = product.CategoryID;
                         ProductDetail.ProductID = product.ProductID;
                         ProductDetail.UnitsInStock = product.UnitsInStock;
                         ProductDetail.UnitPrice = product.UnitPrice;

@@ -12,6 +12,9 @@ namespace NWindProxyService
 {
     public class Proxy : IService
     {
+        // Replace 'localhost' with your IP Address here and 'Project URL' from Service project properties.
+        // Also replace it in 'bindingInformation' property, it is within site node called 'Service'
+        // from applicationhost.config (it is located in .vs/config path from solution folder)
         const string BaseURL = "http://localhost:58349/";
         const string JSONHeader = "application/json";
 

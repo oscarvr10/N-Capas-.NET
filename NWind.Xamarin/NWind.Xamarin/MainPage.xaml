@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NWind.Xamarin.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:NWind.ViewModel;assembly=NWind.ViewModel"
+    Title="Search Products">
+    <ContentPage.BindingContext>
+        <vm:ProductViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout Spacing="10">
+        <StackLayout>
+            <Grid Padding="0,5" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Category ID:" VerticalOptions="CenterAndExpand" />
+                <Entry
+                    Grid.Column="1"
+                    HeightRequest="35"
+                    Text="{Binding CategoryID}" />
+                <Button
+                    Grid.Column="2"
+                    Command="{Binding SearchProductsCommand}"
+                    Text="Search" />
+                <Button
+                    Grid.Column="3"
+                    Command="{Binding SearchProductByIDCommand}"
+                    Text="View Detail" />
+            </Grid>
+            <ListView ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell
+                            Detail="{Binding CategoryID, StringFormat='Category ID: {0}'}"
+                            DetailColor="Gray"
+                            Text="{Binding ProductName}"
+                            TextColor="Black" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <Button
+            x:Name="btnCUD"
+            Clicked="btnCUD_Clicked"
+            Text="New Product"
+            WidthRequest="100" />
+        <StackLayout Margin="30,0,0,0">
+            <Label
+                FontAttributes="Bold"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Product Detail" />
+            <StackLayout Orientation="Horizontal">
+                <Label FontAttributes="Bold">ID:</Label>
+                <Label Text="{Binding ProductDetail.ProductID}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontAttributes="Bold">Category ID:</Label>
+                <Label Text="{Binding ProductDetail.CategoryID}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontAttributes="Bold">Name:</Label>
+                <Label Text="{Binding ProductDetail.ProductName}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontAttributes="Bold">Units in Stock:</Label>
+                <Label Text="{Binding ProductDetail.UnitsInStock}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontAttributes="Bold">Unit Price:</Label>
+                <Label Text="{Binding ProductDetail.UnitPrice}" />
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
